@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - 'main'
+    tags:
+      - 'v*'
+
   workflow_dispatch:
 
 jobs:
@@ -22,6 +25,15 @@ jobs:
         run: |
           ./mvnw clean package
         working-directory: ./app/demo-web-app
+
+      - name: rename jar
+        run: mv target/*.jar app.jar
+        working-directory: ./app/demo-web-app
+
+      - name: release jar
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./app/demo-web-app/target/app.jar
 
       - name: end job
         run: echo "Job completed"
