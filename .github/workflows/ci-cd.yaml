@@ -30,3 +30,11 @@ jobs:
       - name: Show Outputs
         run: |
           echo "My name is ${{ steps.producer_stage.outputs.name }}"
+
+      - name: Environment file
+        run: |
+          echo "MY_ENV=demo" >> $GITHUB_ENV
+      
+      - name: Read from Environment file
+        run: |
+          echo "Env name is MY_ENV = $MY_ENV"
