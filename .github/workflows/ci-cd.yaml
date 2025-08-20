@@ -1,38 +1,24 @@
-name: Demo Workflow
+name: Workflow Syntax
 on:
   push:
-    tags:
-      - 'v*'
-
-  workflow_dispatch:
-
+    branches:
+      - main
+    
 jobs:
-  package:
+  basics:
+    name: "Expressions, Context, Commands"
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v5
-
-      - name: setup java 21
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'oracle'
-          java-version: '21'
-      
-      - name: build jar
+      - name: Show Contexts
         run: |
-          ./mvnw clean package
-        working-directory: ./app/demo-web-app
+          echo "Ref = ${{ github.ref }} "
+          echo "Repo = ${{ github.repo }} "
+          echo "Actor = ${{ github.actor }} "
+          echo "sha = ${{ githu.sha }} "
 
-      - name: rename jar
-        run: mv target/*.jar target/app.jar
-        working-directory: ./app/demo-web-app
-
-      - name: release jar
-        uses: softprops/action-gh-release@v2
-        with:
-          files: ./app/demo-web-app/target/app.jar
-          token: ${{ secrets.TOKEN }}
-
-      - name: end job
-        run: echo "Job completed"    
+    steps: 
+      - name: Workflow Commands
+        run: |
+          echo "::debug::This is a debug message"
+          echo "::warning::This is an warning message"
+          echo "::error::This is an error message"
