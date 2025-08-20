@@ -27,7 +27,7 @@ jobs:
         working-directory: ./app/demo-web-app
 
       - name: rename jar
-        run: mv target/*.jar app.jar
+        run: mv target/*.jar target/*app.jar
         working-directory: ./app/demo-web-app
 
       - name: release jar
