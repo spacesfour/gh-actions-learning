@@ -38,3 +38,10 @@ jobs:
       - name: Read from Environment file
         run: |
           echo "Env name is MY_ENV = $MY_ENV"
+
+      - name: Job Summary
+        run: |
+          echo "## Job Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Actor: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Ref: ${{ github.ref }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Done by: ${{ steps.producer_stage.outputs.name }}" >> $GITHUB_STEP_SUMMARY
