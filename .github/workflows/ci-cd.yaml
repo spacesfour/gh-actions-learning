@@ -23,9 +23,10 @@ jobs:
           echo "::error::This is an error message"
     
       - name: Produce Outputs
+        id: producer_stage
         run: |
           echo "name=mugdho" >> $GITHUB_OUTPUT
       
       - name: Show Outputs
         run: |
-          echo "My name is ${{ steps.basics.outputs.name }}"
+          echo "My name is ${{ steps.producer_stage.outputs.name }}"
