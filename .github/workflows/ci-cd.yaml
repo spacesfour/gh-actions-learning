@@ -31,7 +31,7 @@ jobs:
       - name: release jar
         uses: softprops/action-gh-release@v2
         with:
-          files: ./app/demo-web-app/app.jar
+          files: ./app/demo-web-app/target/app.jar
           token: ${{ secrets.TOKEN }}
 
       - name: end job
