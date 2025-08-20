@@ -55,3 +55,5 @@ jobs:
       - name: Show Previous Stage Output
         run: |
           echo "I said that, my name is ${{ needs.basics.outputs.name }}"
+    outputs:
+      name: ${{ needs.basics.outputs.name }}
