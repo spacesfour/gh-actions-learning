@@ -16,7 +16,6 @@ jobs:
           echo "Actor = ${{ github.actor }} "
           echo "sha = ${{ github.sha }} "
 
-    steps: 
       - name: Workflow Commands
         run: |
           echo "::debug::This is a debug message"
