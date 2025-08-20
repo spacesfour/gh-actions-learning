@@ -14,7 +14,7 @@ jobs:
           echo "Ref = ${{ github.ref }} "
           echo "Repo = ${{ github.repo }} "
           echo "Actor = ${{ github.actor }} "
-          echo "sha = ${{ githu.sha }} "
+          echo "sha = ${{ github.sha }} "
 
     steps: 
       - name: Workflow Commands
