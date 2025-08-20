@@ -8,6 +8,8 @@ jobs:
   basics:
     name: "Expressions, Context, Commands"
     runs-on: ubuntu-latest
+    outputs:
+      name: ${{ needs.producer_stage.outputs.name }}
     steps:
       - name: Show Contexts
         run: |
