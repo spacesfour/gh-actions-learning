@@ -45,3 +45,13 @@ jobs:
           echo "- Actor: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
           echo "- Ref: ${{ github.ref }}" >> $GITHUB_STEP_SUMMARY
           echo "- Done by: ${{ steps.producer_stage.outputs.name }}" >> $GITHUB_STEP_SUMMARY
+
+
+  output_passing:
+    needs: basics
+    name: Output parsing across jobs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Previous Stage Output
+        run: |
+          echo "I said that, my name is ${{ needs.basics.outputs.name }}"
