@@ -24,7 +24,7 @@ jobs:
     
       - name: Produce Outputs
         run: |
-          echo "name=mugdho >> $GITHUB_OUTPUT"
+          echo "name=mugdho" >> $GITHUB_OUTPUT
       
       - name: Show Outputs
         run: |
