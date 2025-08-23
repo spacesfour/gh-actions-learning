@@ -14,7 +14,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'oracle'
-          version: '21'
+          java-version: '21'
       
       - name : perform tests
         run: ./mvnw test
