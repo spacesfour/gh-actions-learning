@@ -17,7 +17,8 @@ jobs:
           java-version: '21'
       
       - name : perform tests
-        run: ./mvnw test
+        run: |
+          ./mvnw test
         working-directory: ./app/demo-web-app
 
 
