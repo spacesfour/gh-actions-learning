@@ -19,7 +19,7 @@ jobs:
       - name : perform tests
         run: |
           ./mvnw test
-        working-directory: ./app/demo-web-app
+        working-directory: app/demo-web-app
 
 
   package:
