@@ -7,6 +7,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'oracle'
+          version: '21'
+      
+      - name : perform tests
+        run: ./mvnw test
+
+
   package:
     runs-on: ubuntu-latest
     steps:
